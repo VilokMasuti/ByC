@@ -180,7 +180,7 @@ export default function ChatbotIntegration({ onPrev }: { onPrev: () => void }) {
               Integration Failed
             </h3>
             <p className="text-sm md:text-base text-zinc-400">
-              We couldn't detect the chatbot on your website.
+              We couldn&apos;t detect the chatbot on your website.
             </p>
             <Button
               className="w-full text-sm md:text-base py-2 md:py-6 bg-zinc-700 hover:bg-zinc-600 text-white"
