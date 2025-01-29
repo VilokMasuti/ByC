@@ -25,7 +25,8 @@ import { motion } from 'framer-motion';
 import { useState } from 'react';
 import { FiArrowLeft, FiLoader, FiMessageSquare, FiSend } from 'react-icons/fi';
 
-const client = new HfInference('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'); // Replace with your HF token
+const API_KEY =  process.env.H_API_KEY  // Replace with your actual HF token
+const client = new HfInference(API_KEY);
 
 export default function TestChatbotPage({ onBack }: { onBack: () => void }) {
   const [isChatOpen, setIsChatOpen] = useState(false);
