@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { Roboto } from 'next/font/google'; // Import Roboto font
 
+import { Toaster } from '@/components/ui/toaster';
 import './globals.css';
 
 // Google font (Roboto)
@@ -22,7 +23,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={` ${roboto.variable} antialiased`}>{children}</body>
+      <body
+        className={` ${roboto.variable} antialiased
+      bg-zinc-950 text-zinc-50 min-h-screen
+      `}
+      >
+        <main className="flex flex-col min-h-screen">{children}</main>
+        <Toaster />
+      </body>
     </html>
   );
 }

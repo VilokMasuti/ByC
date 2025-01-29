@@ -14,7 +14,7 @@ export default function Home() {
       </div>
 
       {/* Onboarding process should be on top */}
-      <div className="relative z-10 w-full max-w-4xl">
+      <div className="relative z-10 w-full max-w-7xl">
         <OnboardingProcess />
       </div>
     </main>

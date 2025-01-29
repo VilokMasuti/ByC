@@ -22,11 +22,13 @@ import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/hooks/use-toast';
 import { HfInference } from '@huggingface/inference';
 import { motion } from 'framer-motion';
+
 import { useState } from 'react';
 import { FiArrowLeft, FiLoader, FiMessageSquare, FiSend } from 'react-icons/fi';
+import { ShootingStars } from './ui/shooting-stars';
+import { StarsBackground } from './ui/stars-background';
 
-const API_KEY =  process.env.H_API_KEY  // Replace with your actual HF token
-const client = new HfInference(API_KEY);
+const client = new HfInference('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'); // Replace with your HF token
 
 export default function TestChatbotPage({ onBack }: { onBack: () => void }) {
   const [isChatOpen, setIsChatOpen] = useState(false);
@@ -74,7 +76,6 @@ export default function TestChatbotPage({ onBack }: { onBack: () => void }) {
   };
 
   const handleFeedbackSubmit = () => {
-    // Here you would typically send the feedback to your backend
     console.log('Feedback submitted:', feedbackMessage);
     toast({
       title: 'Feedback Submitted',
@@ -86,6 +87,8 @@ export default function TestChatbotPage({ onBack }: { onBack: () => void }) {
 
   return (
     <div className="relative min-h-screen overflow-hidden bg-zinc-950">
+      <StarsBackground />
+      <ShootingStars />
       <div className="relative z-10">
         {/* Header Section */}
         <div className="bg-zinc-900 text-white px-4 py-3 flex items-center justify-between">
@@ -95,29 +98,29 @@ export default function TestChatbotPage({ onBack }: { onBack: () => void }) {
             className="flex items-center space-x-2 text-white hover:text-zinc-300"
           >
             <FiArrowLeft />
-            <span>Back</span>
+            <span className="hidden sm:inline">Back</span>
           </Button>
 
           <Button
             variant="outline"
             onClick={() => setShowFeedbackDialog(true)}
-            className="text-white border-zinc-700 hover:bg-zinc-800"
+            className="text-white border-zinc-700 hover:bg-zinc-800 text-xs sm:text-sm"
           >
-            Share feedback
+            Feedback
           </Button>
         </div>
 
         {/* Main Content */}
-        <div className="max-w-4xl mx-auto px-4 py-12">
+        <div className="max-w-7xl mx-auto px-4 py-6 sm:py-12">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
           >
-            <h1 className="text-4xl font-bold mb-6 bg-gradient-to-r from-white to-zinc-500 bg-clip-text text-transparent">
+            <h1 className="text-2xl sm:text-4xl font-bold mb-4 sm:mb-6 bg-gradient-to-r from-white to-zinc-500 bg-clip-text text-transparent">
               Example Domain
             </h1>
-            <p className="text-lg text-zinc-400 mb-4">
+            <p className="text-sm sm:text-lg text-zinc-400 mb-4">
               This domain is for use in illustrative examples in documents. You
               may use this domain in literature without prior coordination or
               asking for permission.
@@ -130,15 +133,15 @@ export default function TestChatbotPage({ onBack }: { onBack: () => void }) {
           {!isChatOpen ? (
             <Button
               size="icon"
-              className="rounded-full h-16 w-16 shadow-lg bg-zinc-800 hover:bg-zinc-700 text-white"
+              className="rounded-full h-12 w-12 sm:h-16 sm:w-16 shadow-lg bg-zinc-800 hover:bg-zinc-700 text-white"
               onClick={() => setIsChatOpen(true)}
             >
-              <FiMessageSquare size={28} />
+              <FiMessageSquare size={24} />
             </Button>
           ) : (
-            <Card className="w-96 h-[25rem] flex flex-col border-zinc-800 bg-zinc-900">
+            <Card className="w-[240px] sm:w-96 h-[23rem] flex flex-col border-zinc-800 bg-zinc-900">
               <CardHeader>
-                <CardTitle className="text-xl text-white">
+                <CardTitle className="text-lg sm:text-xl text-white">
                   Chat with us
                 </CardTitle>
                 <Button
@@ -204,17 +207,20 @@ export default function TestChatbotPage({ onBack }: { onBack: () => void }) {
 
         {/* Feedback Dialog */}
         <Dialog open={showFeedbackDialog} onOpenChange={setShowFeedbackDialog}>
-          <DialogContent className="bg-zinc-900 border-zinc-800">
+          <DialogContent className="bg-zinc-900 border-zinc-800 w-[90vw] max-w-[425px]">
             <DialogHeader>
-              <DialogTitle className="text-white">
+              <DialogTitle className="text-xl sm:text-2xl text-white">
                 Share Your Feedback
               </DialogTitle>
-              <DialogDescription className="text-zinc-400">
+              <DialogDescription className="text-sm sm:text-base text-zinc-400">
                 We&apos;d love to hear your thoughts on our chatbot.
               </DialogDescription>
             </DialogHeader>
             <div className="py-4">
-              <Label htmlFor="feedback" className="text-zinc-300">
+              <Label
+                htmlFor="feedback"
+                className="text-sm sm:text-base text-zinc-300"
+              >
                 Your Feedback
               </Label>
               <Textarea
@@ -228,7 +234,7 @@ export default function TestChatbotPage({ onBack }: { onBack: () => void }) {
             <DialogFooter>
               <Button
                 onClick={handleFeedbackSubmit}
-                className="bg-zinc-700 hover:bg-zinc-600 text-white"
+                className="w-full bg-zinc-700 hover:bg-zinc-600 text-white"
               >
                 Submit Feedback
               </Button>
