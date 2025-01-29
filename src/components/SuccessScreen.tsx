@@ -14,7 +14,7 @@ import { FaFacebook, FaLinkedin, FaTwitter } from 'react-icons/fa';
 
 export default function SuccessScreen({ onReset }: { onReset: () => void }) {
   return (
-    <div className="min-h-screen flex flex-col justify-center items-center relative bg-zinc-950">
+    <div className="min-h-screen  flex flex-col justify-center items-center relative bg-zinc-950">
       <Confetti />
       <motion.div
         initial={{ opacity: 0, scale: 0.8 }}
