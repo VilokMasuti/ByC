@@ -67,6 +67,7 @@ export default function TestChatbotPage({ onBack }: { onBack: () => void }) {
     } catch (error) {
       console.error('Chatbot API error:', error);
       toast({
+        className: ' ml-[-3%] ',
         title: 'Error',
         description: 'Failed to get a response. Please try again.',
       });
@@ -76,8 +77,8 @@ export default function TestChatbotPage({ onBack }: { onBack: () => void }) {
   };
 
   const handleFeedbackSubmit = () => {
-    console.log('Feedback submitted:', feedbackMessage);
     toast({
+      className: ' ml-[-3%] ',
       title: 'Feedback Submitted',
       description: 'Thank you for your feedback!',
     });

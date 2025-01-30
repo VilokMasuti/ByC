@@ -41,7 +41,7 @@ export default function ChatbotIntegration({ onPrev }: { onPrev: () => void }) {
 
   const handleFeedbackSubmit = () => {
     toast({
-      className: 'bg-white',
+      className: ' ml-[-3%] ',
       title: 'Feedback submitted',
       description: 'Thank you for your feedback!',
     });
@@ -52,6 +52,7 @@ export default function ChatbotIntegration({ onPrev }: { onPrev: () => void }) {
   const handleSendInstructions = () => {
     if (!developerEmail) {
       toast({
+        className: ' ml-[-3%] ',
         title: 'Error',
         description: 'Please enter a valid email address.',
         variant: 'destructive',
@@ -63,6 +64,7 @@ export default function ChatbotIntegration({ onPrev }: { onPrev: () => void }) {
     console.log('Sending instructions to:', developerEmail);
 
     toast({
+      className: ' ml-[-3%] ',
       title: 'Instructions Sent',
       description: 'Integration instructions have been sent to the developer.',
     });

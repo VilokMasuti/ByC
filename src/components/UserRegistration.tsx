@@ -24,6 +24,7 @@ export default function UserRegistration({ onNext }: { onNext: () => void }) {
 
     if (step === 'register') {
       toast({
+        className: ' ml-[-3%] ',
         title: 'Verification code sent',
         description: 'Please check your email for the verification code.',
       });
@@ -31,12 +32,14 @@ export default function UserRegistration({ onNext }: { onNext: () => void }) {
     } else {
       if (formData.verificationCode === '123456') {
         toast({
+          className: ' ml-[-3%] ',
           title: 'Email verified successfully!',
           description: 'You can now proceed to the next step.',
         });
         onNext();
       } else {
         toast({
+          className: ' ml-[-3%] ',
           title: 'Invalid verification code',
           description: 'Please try again.',
           variant: 'destructive',
@@ -47,6 +50,7 @@ export default function UserRegistration({ onNext }: { onNext: () => void }) {
 
   const handleGoogleLogin = () => {
     toast({
+      className: ' ml-[-3%] ',
       title: 'Continuing with Google...',
       description: 'This feature is not implemented in this demo.',
     });

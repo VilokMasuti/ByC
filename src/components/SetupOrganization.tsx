@@ -56,6 +56,7 @@ export default function SetupOrganization({
         }));
         setIsLoading(false);
         toast({
+          className: ' ml-[-3%] ',
           title: 'Meta description fetched successfully!',
         });
       }, 1500);
@@ -78,6 +79,7 @@ export default function SetupOrganization({
   const handleFinishTraining = () => {
     setIsChatbotTraining(false);
     toast({
+      className: ' ml-[-3%] ',
       title: 'Chatbot Training Complete',
       description: 'Your chatbot is now ready to use.',
     });
