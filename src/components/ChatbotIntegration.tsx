@@ -85,7 +85,7 @@ export default function ChatbotIntegration({ onPrev }: { onPrev: () => void }) {
       exit={{ opacity: 0 }}
       className="space-y-6 p-4 md:p-6"
     >
-      <h2 className="text-2xl md:text-3xl font-bold text-center bg-gradient-to-r from-white to-zinc-500 bg-clip-text text-transparent">
+      <h2 className="text-2xl md:text-3xl font-bold text-center bg-gradient-to-r from-white to-zinc-900 bg-clip-text text-transparent font-['Helvetica_Now_Display'] antialiased  ">
         Chatbot Integration & Testing
       </h2>
       <AnimatePresence mode="wait">
@@ -97,27 +97,27 @@ export default function ChatbotIntegration({ onPrev }: { onPrev: () => void }) {
             exit={{ opacity: 0, y: -20 }}
             className="space-y-4"
           >
-            <Button
-              className="w-full text-sm md:text-base py-4 md:py-6 bg-zinc-800 hover:bg-zinc-700 text-white"
+            <button
+              className=" w-full  inline-flex h-10 animate-shimmer items-center justify-center rounded-md border border-zinc-800 bg-[linear-gradient(110deg,#000103,45%,#1e2631,55%,#000103)] bg-[length:200%_100%] px-6 font-medium text-zinc-400 transition-colors focus:outline-none focus:ring-2 focus:ring-zinc-400 focus:ring-offset-2 focus:ring-offset-zinc-"
               onClick={() => setShowTestChatbot(true)}
             >
               <FaComments className="mr-2 text-lg md:text-xl" />
               Test Chatbot
-            </Button>
-            <Button
-              className="w-full text-sm md:text-base py-4 md:py-6 bg-zinc-800 hover:bg-zinc-700 text-white"
+            </button>
+            <button
+              className=" w-full inline-flex h-10 animate-shimmer items-center justify-center rounded-md border border-zinc-800 bg-[linear-gradient(110deg,#000103,45%,#1e2631,55%,#000103)] bg-[length:200%_100%] px-6 font-medium text-zinc-400 transition-colors focus:outline-none focus:ring-2 focus:ring-zinc-400 focus:ring-offset-2 focus:ring-offset-zinc-"
               onClick={() => setStep('integrate')}
             >
               <FaCode className="mr-2 text-lg md:text-xl" />
               Integrate on your website
-            </Button>
-            <Button
-              className="w-full text-sm md:text-base py-4 md:py-6 bg-zinc-800 hover:bg-zinc-700 text-white"
+            </button>
+            <button
+              className=" w-full inline-flex h-10 animate-shimmer items-center justify-center rounded-md border border-zinc-800 bg-[linear-gradient(110deg,#000103,45%,#1e2631,55%,#000103)] bg-[length:200%_100%] px-6 font-medium text-zinc-400 transition-colors focus:outline-none focus:ring-2 focus:ring-zinc-400 focus:ring-offset-2 focus:ring-offset-zinc-"
               onClick={testIntegration}
             >
               <FaCheckCircle className="mr-2 text-lg md:text-xl" />
               Test Integration
-            </Button>
+            </button>
           </motion.div>
         )}
         {step === 'integrate' && (
@@ -131,7 +131,7 @@ export default function ChatbotIntegration({ onPrev }: { onPrev: () => void }) {
             <Card className="bg-zinc-900 border-zinc-800">
               <CardContent className="space-y-4 p-4 md:p-6">
                 <div className="space-y-2">
-                  <Label className="text-sm md:text-base text-zinc-400">
+                  <Label className="text-sm md:text-base text-zinc-400 font-['Helvetica_Now_Display']">
                     Copy-paste this code in your website&lsquo;s {'<head>'} tag:
                   </Label>
                   <pre className="bg-zinc-800 p-2 md:p-4 rounded-md text-xs md:text-sm overflow-x-auto text-zinc-300">
@@ -141,7 +141,7 @@ export default function ChatbotIntegration({ onPrev }: { onPrev: () => void }) {
                 <div className="space-y-2">
                   <Label
                     htmlFor="developerEmail"
-                    className="text-sm md:text-base text-zinc-400"
+                    className="text-sm md:text-base text-zinc-400 font-['Helvetica_Now_Display']"
                   >
                     Or, we can email instructions to your developer:
                   </Label>
@@ -153,59 +153,56 @@ export default function ChatbotIntegration({ onPrev }: { onPrev: () => void }) {
                     onChange={(e) => setDeveloperEmail(e.target.value)}
                     className="text-sm md:text-base py-2 md:py-6 bg-zinc-800 border-zinc-700 text-white placeholder:text-zinc-500"
                   />
-                  <Button
-                    className="w-full text-sm md:text-base py-2 md:py-6 bg-zinc-700 hover:bg-zinc-600 text-white"
+                  <button
+                    className="inline-flex h-10 animate-shimmer items-center justify-center rounded-md border border-zinc-800 bg-[linear-gradient(110deg,#000103,45%,#1e2631,55%,#000103)] bg-[length:200%_100%] px-6 font-medium text-zinc-400 transition-colors focus:outline-none focus:ring-2 focus:ring-zinc-400 focus:ring-offset-2 focus:ring-offset-zinc-"
                     onClick={handleSendInstructions}
                   >
-                    <FaEnvelope className="mr-2 text-lg md:text-xl" />
+                    <FaEnvelope className="mr-2 text-lg md:text-xl font-['Helvetica_Now_Display']" />
                     Send Instructions
-                  </Button>
+                  </button>
                 </div>
               </CardContent>
             </Card>
-            <Button
-              variant="outline"
-              className="w-full text-sm md:text-base py-2 md:py-6 text-zinc-400 border-zinc-700 hover:bg-zinc-800"
+            <button
+              className="inline-flex h-10 animate-shimmer items-center justify-center rounded-md border border-zinc-800 bg-[linear-gradient(110deg,#000103,45%,#1e2631,55%,#000103)] bg-[length:200%_100%] px-6 font-medium text-zinc-400 transition-colors focus:outline-none focus:ring-2 focus:ring-zinc-400 focus:ring-offset-2 focus:ring-offset-zinc- hover:bg-zinc-800"
               onClick={() => setStep('options')}
             >
               Back to Options
-            </Button>
+            </button>
           </motion.div>
         )}
       </AnimatePresence>
       {integrationStatus === 'failure' && (
         <Card className="bg-zinc-900 border-zinc-800">
           <CardContent className="space-y-4 p-4 md:p-6">
-            <h3 className="text-lg md:text-xl font-semibold text-white">
+            <h3 className="text-lg md:text-xl font-semibold text-white font-['Helvetica_Now_Display']">
               Integration Failed
             </h3>
-            <p className="text-sm md:text-base text-zinc-400">
+            <p className="text-sm md:text-base text-zinc-400 font-['Helvetica_Now_Display']">
               We couldn&apos;t detect the chatbot on your website.
             </p>
-            <Button
-              className="w-full text-sm md:text-base py-2 md:py-6 bg-zinc-700 hover:bg-zinc-600 text-white"
+            <button
+              className=" w-full inline-flex h-10 animate-shimmer items-center justify-center rounded-md border border-zinc-800 bg-[linear-gradient(110deg,#000103,45%,#1e2631,55%,#000103)] bg-[length:200%_100%] px-6 font-medium text-zinc-400 transition-colors focus:outline-none focus:ring-2 focus:ring-zinc-400 focus:ring-offset-2 focus:ring-offset-zinc- hover:bg-zinc-800 antialiased font-['Helvetica_Now_Display']"
               onClick={() => setIntegrationStatus(null)}
             >
               Try Again
-            </Button>
-            <Button
-              variant="outline"
-              className="w-full text-sm md:text-base py-2 md:py-6 text-zinc-400 border-zinc-700 hover:bg-zinc-800"
+            </button>
+            <button
+              className=" w-full inline-flex h-10 animate-shimmer items-center justify-center rounded-md border border-zinc-800 bg-[linear-gradient(110deg,#000103,45%,#1e2631,55%,#000103)] bg-[length:200%_100%] px-6 font-medium text-zinc-400 transition-colors focus:outline-none focus:ring-2 focus:ring-zinc-400 focus:ring-offset-2 focus:ring-offset-zinc- hover:bg-zinc-800 antialiased font-['Helvetica_Now_Display']"
               onClick={() => setShowFeedbackDialog(true)}
             >
               Report an Issue
-            </Button>
+            </button>
           </CardContent>
         </Card>
       )}
       {step === 'options' && (
-        <Button
-          variant="outline"
-          className="w-full text-sm md:text-base py-2 md:py-6 text-zinc-400 border-zinc-700 hover:bg-zinc-800"
+        <button
+          className=" w-full inline-flex h-10 animate-shimmer items-center justify-center rounded-md border border-zinc-800 bg-[linear-gradient(110deg,#000103,45%,#1e2631,55%,#000103)] bg-[length:200%_100%] px-6 font-medium text-zinc-400 transition-colors focus:outline-none focus:ring-2 focus:ring-zinc-400 focus:ring-offset-2 focus:ring-offset-zinc- hover:bg-zinc-800 antialiased font-['Helvetica_Now_Display'] "
           onClick={onPrev}
         >
           Back to Setup
-        </Button>
+        </button>
       )}
 
       <Dialog open={showFeedbackDialog} onOpenChange={setShowFeedbackDialog}>

@@ -27,7 +27,8 @@ export default function OnboardingProcess() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="w-full max-w-3xl px-4"
+        className="w-[110%]
+          max-w-3xl px-4"
       >
         <Card className="backdrop-blur-md bg-zinc-900/50 border-zinc-800 shadow-2xl">
           <div className="p-6 border-b border-zinc-800">

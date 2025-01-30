@@ -92,35 +92,36 @@ export default function TestChatbotPage({ onBack }: { onBack: () => void }) {
       <div className="relative z-10">
         {/* Header Section */}
         <div className="bg-zinc-900 text-white px-4 py-3 flex items-center justify-between">
-          <Button
-            variant="ghost"
+          <button
             onClick={onBack}
-            className="flex items-center space-x-2 text-white hover:text-zinc-300"
+            className=" inline-flex h-10 animate-shimmer items-center justify-center rounded-md border border-zinc-800 bg-[linear-gradient(110deg,#000103,45%,#1e2631,55%,#000103)] bg-[length:200%_100%] px-6 font-medium text-zinc-400 transition-colors focus:outline-none focus:ring-2 focus:ring-zinc-400 focus:ring-offset-2 focus:ring-offset-zinc- "
           >
             <FiArrowLeft />
             <span className="hidden sm:inline">Back</span>
-          </Button>
+          </button>
 
-          <Button
-            variant="outline"
+          <button
             onClick={() => setShowFeedbackDialog(true)}
-            className="text-white border-zinc-700 hover:bg-zinc-800 text-xs sm:text-sm"
+            className="inline-flex h-10 animate-shimmer items-center justify-center rounded-md border border-zinc-800 bg-[linear-gradient(110deg,#000103,45%,#1e2631,55%,#000103)] bg-[length:200%_100%] px-6 font-medium text-zinc-400 transition-colors focus:outline-none focus:ring-2 focus:ring-zinc-400 focus:ring-offset-2 focus:ring-offset-zinc-5"
           >
             Feedback
-          </Button>
+          </button>
         </div>
 
         {/* Main Content */}
-        <div className="max-w-7xl mx-auto px-4 py-6 sm:py-12">
+        <div className="sm:max-w-7xl mx-auto px-4 py-6 sm:py-12 min-w-full ">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
           >
-            <h1 className="text-2xl sm:text-4xl font-bold mb-4 sm:mb-6 bg-gradient-to-r from-white to-zinc-500 bg-clip-text text-transparent">
+            <h1
+              className="text-2xl sm:text-4xl font-bold mb-4 sm:mb-6 bg-gradient-to-r from-white to-zinc-900 bg-clip-text text-transparent
+             font-['Helvetica_Now_Display'  "
+            >
               Example Domain
             </h1>
-            <p className="text-sm sm:text-lg text-zinc-400 mb-4">
+            <p className="text-sm sm:text-lg text-zinc-400 mb-4 font-['Helvetica_Now_Display'  ">
               This domain is for use in illustrative examples in documents. You
               may use this domain in literature without prior coordination or
               asking for permission.
@@ -141,7 +142,11 @@ export default function TestChatbotPage({ onBack }: { onBack: () => void }) {
           ) : (
             <Card className="w-[240px] sm:w-96 h-[23rem] flex flex-col border-zinc-800 bg-zinc-900">
               <CardHeader>
-                <CardTitle className="text-lg sm:text-xl text-white">
+                <CardTitle
+                  className="text-lg sm:text-xl text-white
+                font-['Helvetica_Now_Display']
+                "
+                >
                   Chat with us
                 </CardTitle>
                 <Button
@@ -209,10 +214,18 @@ export default function TestChatbotPage({ onBack }: { onBack: () => void }) {
         <Dialog open={showFeedbackDialog} onOpenChange={setShowFeedbackDialog}>
           <DialogContent className="bg-zinc-900 border-zinc-800 w-[90vw] max-w-[425px]">
             <DialogHeader>
-              <DialogTitle className="text-xl sm:text-2xl text-white">
+              <DialogTitle
+                className="text-xl sm:text-2xl text-white
+               font-['Helvetica_Now_Display']
+              "
+              >
                 Share Your Feedback
               </DialogTitle>
-              <DialogDescription className="text-sm sm:text-base text-zinc-400">
+              <DialogDescription
+                className="text-sm sm:text-base text-zinc-900
+               font-['Helvetica_Now_Display']
+              "
+              >
                 We&apos;d love to hear your thoughts on our chatbot.
               </DialogDescription>
             </DialogHeader>
@@ -232,12 +245,12 @@ export default function TestChatbotPage({ onBack }: { onBack: () => void }) {
               />
             </div>
             <DialogFooter>
-              <Button
+              <button
                 onClick={handleFeedbackSubmit}
-                className="w-full bg-zinc-700 hover:bg-zinc-600 text-white"
+                className="inline-flex h-10 animate-shimmer w-full items-center justify-center rounded-md border border-zinc-800 bg-[linear-gradient(110deg,#000103,45%,#1e2631,55%,#000103)] bg-[length:200%_100%] px-6 font-medium text-zinc-400 transition-colors focus:outline-none focus:ring-2 focus:ring-zinc-400 focus:ring-offset-2 focus:ring-offset-zinc-5"
               >
                 Submit Feedback
-              </Button>
+              </button>
             </DialogFooter>
           </DialogContent>
         </Dialog>
